@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================= */
+/* ☀️🌙 LOADER: SUN & MOON LOOP  */
+/* ============================= */
+
+@keyframes sunMove {
+  0% {
+    transform: translate(-50%, 120%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -20%);
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 120%);
+    opacity: 0;
+  }
+}
+
+@keyframes moonMove {
+  0% {
+    transform: translate(-50%, 120%);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, 120%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -20%);
+    opacity: 1;
+  }
+}
+
+/* ☀️ SUN */
+.sun {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #fff7b2, #ffcc00);
+  box-shadow: 0 0 40px rgba(255, 204, 0, 0.8);
+  animation: sunMove 4s ease-in-out infinite;
+}
+
+/* 🌙 MOON */
+.moon {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #d1d5db);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  animation: moonMove 4s ease-in-out infinite;
+}
+/* ============================= */
+/* 🌞🌙 SUN & MOON LOADER        */
+/* ============================= */
+
+.sun,
+.moon {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  position: absolute;
+  bottom: -60px;
+  animation: riseSet 3.5s ease-in-out infinite;
+}
+
+/* ☀️ SUN */
+.sun {
+  background: radial-gradient(circle at 30% 30%, #fff59d, #facc15);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
+  animation-delay: 0s;
+}
+
+/* 🌙 MOON */
+.moon {
+  background: radial-gradient(circle at 30% 30%, #e5e7eb, #9ca3af);
+  box-shadow: 0 0 20px rgba(229, 231, 235, 0.6);
+  animation-delay: 1.75s;
+}
+
+@keyframes riseSet {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  25% {
+    transform: translate(-50%, -90px);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -90px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Visible custom scrollbar */
+body::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
+  border-radius: 999px;
+  transition: background 200ms;
+}
+
+/* When scrolled (toggle class on body) */
+body.scrolled::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.85);
+}
+
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.35) transparent;
+}
+body.scrolled {
+  scrollbar-color: rgba(255,255,255,0.85) transparent;
+} 
+
+* {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
